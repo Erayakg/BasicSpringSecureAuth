@@ -31,7 +31,6 @@ public class JwtService {
     }
 
     public <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {
-        System.out.println(token);
         final Claims claims = extractAllClaims(token);
         return claimsResolver.apply(claims);
     }
@@ -69,7 +68,7 @@ public class JwtService {
     }
 
     private Key generateSignKey() {
-        String SECRET = "5367566B59703373367639792F423F4528482B4D6251655468576D5A71347437";
+        String SECRET = "*****************";
         byte[] keyBytes = Decoders.BASE64.decode(SECRET);
         return Keys.hmacShaKeyFor(keyBytes);
     }
